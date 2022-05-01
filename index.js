@@ -1,11 +1,15 @@
 // index.js
 // This is our main server file
+'use strict'
 
 // include express
 const express = require("express");
 // create object to interface with express
-const bodyParser = require('body-parser');
 const app = express();
+const bodyParser = require('body-parser');
+const fetch = require("cross-fetch");
+// get Promise-based interface to sqlite3
+const db = require('./sqlWrap');
 
 // Code in this section sets up an express pipeline
 app.use(express.static("public"));
@@ -33,9 +37,10 @@ app.get("/", (request, response) => {
 
 app.post('/videoData', function(req, res, next) {
   console.log("Server recieved a post request at", req.url);
-  let text = req.body;
-  console.log("It contained this string:",text);
-  res.send("I got your POST request");
+  let infoJSON = req.body;
+  console.log("It contained this string:", infoJSON.username);
+  let a = {"key" : "value"};
+  res.json(a);
 });
 
 app.post('/acknowledgement', function(req, res, next) {

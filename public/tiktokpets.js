@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const continueButton = document.getElementById("continue_button");
 continueButton.addEventListener("click", continueFunction);
@@ -7,10 +7,11 @@ async function sendPostRequest(url, data) {
   console.log("about to send post request");
   let response = await fetch(url, {
     method: 'POST', 
-    headers: {'Content-Type': 'text/plain'},
+    headers: {'Content-Type': 'application/json'},
     body: data });
+  console.log(typeof(response));
   if (response.ok) {
-    let data = await response.text();
+    let data = await response.json();
     return data;
   } else {
     throw Error(response.status);
@@ -22,9 +23,13 @@ function continueFunction() {
   const url = document.getElementsByName("url")[0].value;
   const nickname = document.getElementsByName("nickname")[0].value;
 
-  let info = username + " " + url + " " + nickname;
-
-  sendPostRequest('/videoData', info)
+  let info = {
+    "username" : username,
+    "url" : url,
+    "nickname" : nickname
+    };
+  let infoJSON = JSON.stringify(info);
+  sendPostRequest('/videoData', infoJSON)
 // since this page appears at 
 // https://POST-Example.profamenta.repl.co
 // the POST request goes to 
