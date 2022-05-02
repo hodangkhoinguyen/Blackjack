@@ -1,9 +1,10 @@
 // for example, these are hardcoded
 var url = 'https://www.tiktok.com/@cheyennebaker1/video/7088856562982423854';
 
+let divElmt = document.getElementById("tiktokDiv");
+
 sendGetRequest('/getMostRecent')
 .then(function (data) {
-  document.getElementById('c2').innerHTML = "\'" + data.nickname + "\'";
   console.log(data.url);
   url = data.url;
   
@@ -21,7 +22,6 @@ sendGetRequest('/getMostRecent')
 // these are global! 
 let continueButton = document.getElementById("continue");
 let reloadButton = document.getElementById("reload");
-let divElmt = document.getElementById("tiktokDiv");
 
 continueButton.addEventListener("click", continueFunction);
 reloadButton.addEventListener("click", reloadVideo);
