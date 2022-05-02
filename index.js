@@ -36,7 +36,7 @@ app.get("/", (request, response) => {
 });
 
 app.post('/videoData', function(req, res, next) {
-  console.log("Server recieved a post request at", req.url);
+  console.log("Server received a post request at", req.url);
   let videoObj = req.body;
   console.log("It contained this string:", videoObj);
   newVideo(videoObj)
@@ -47,14 +47,24 @@ app.post('/videoData', function(req, res, next) {
 });
 
 app.post('/acknowledgement', function(req, res, next) {
-  console.log("Server recieved a post request at", req.url);
+  console.log("Server received a post request at", req.url);
   let text = req.body;
   console.log("It contained this string:",text);
-  res.send("I got your POST request");
+  res.json("I got your POST request");
+});
+
+app.get('/getMostRecent', function(req, res, next) {
+  console.log("Server received a post request at", req.url);
+  getMostRecentVideo()
+  .then(function(result) {
+    res.json(result);
+  })
+  .catch(function(err) {console.log("Cannot get the most recent video")});
 });
 
 // Need to add response if page not found!
 app.use(function(req, res){ res.status(404); res.type('txt'); res.send('404 - File '+req.url+' not found'); });
+
 
 
 // end of pipeline specification
@@ -68,7 +78,6 @@ const listener = app.listen(3000, function () {
 //An async function to check if the database can store more videos
 async function newVideo(v) {
   let result = await dumpTable();
-  console.log(result);
   if (result.length < 8) {
     await insertVideo(v); 
     return "Added to database";
@@ -89,8 +98,14 @@ async function insertVideo(v) {
 
 // An async function to dump the database's content
 async function dumpTable() {
-  const sql = "select * from VideoTable";
-  
+  const sql = "select * from VideoTable";  
   let result = await db.all(sql);
+  return result;
+}
+
+// An async function to get the most recent video
+async function getMostRecentVideo() {
+  const sql = "select * from VideoTable where flag=TRUE";
+  let result = await db.get(sql);
   return result;
 }
