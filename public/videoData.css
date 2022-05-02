@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  --ttmagenta: rgba(238, 29, 82, 0.8);
 }
 
 header {  
@@ -20,12 +21,10 @@ header {
 
 main {
   margin-top: 25px;
-  height: 499px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
 }
 
 button {
@@ -39,25 +38,31 @@ button {
   background-color: rgba(238, 29, 82, 0.9);
 }
 
-h2 {
-  font-family: 'Boogaloo', cursive;
-  font-weight: 600;
-  font-size: 20px;
+div.video {
+  width: 325px;
+  padding: 30px;
+  border-radius: 30px;
+  background-color: var(--ttmagenta);
 }
 
-
-#confirmpt1{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+blockquote {
+  border-style: solid;
+  border-color:  var(--ttmagenta);
+  border-width: 2px;
+  border-radius: 10px;
+  background-color:var(--ttmagenta);
 }
 
-#c2 {
-  color: rgba(238, 29, 82, 0.9);
+iframe {
+  margin-top: -1px;
+  margin-left: -1px;
 }
 
-#submit {
-    margin-top: 60px;
+.icons {
+  margin-top: 20px;
+  color: var(--ttmagenta);
+  font-size: 50px;
+  transform: rotate(45deg) scaleX(-1);
 }
 
 #logo {
@@ -72,19 +77,15 @@ h2 {
     margin-top: 80px;
   }
 
-  header, main {   
-    max-width: 600px;
-  }
-
   main {
-    height: 730px;
+    margin-top: 40px;
   }
 
   button {
+    margin-top: 50px;
     font-size: 20px;
     height: 60px;
     width: 145px;
-    margin-top: 150px;
   }
 
   h2 {
@@ -98,14 +99,15 @@ h2 {
 
 /*for desktop*/
 @media (min-width: 900px) {
-  main {
-    height: 775px;
-  }
-
   button {
     height: 75px;
     width: 160px;
-    margin-top: 175px;
+  }
+
+  .icons {
+    margin-top: 30px;
+    color: var(--ttmagenta);
+    font-size: 60px;
   }
 }
 
