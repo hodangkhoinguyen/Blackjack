@@ -2,12 +2,12 @@
 var url = 'https://www.tiktok.com/@cheyennebaker1/video/7088856562982423854';
 
 let divElmt = document.getElementById("tiktokDiv");
-
+let nickname = document.getElementById("nickname");
 sendGetRequest('/getMostRecent')
 .then(function (data) {
   console.log(data.url);
   url = data.url;
-  
+  nickname.innerText = data.nickname;
   // add the blockquote element that TikTok wants to load the video into
   addVideo(url,divElmt);
 
@@ -17,7 +17,7 @@ sendGetRequest('/getMostRecent')
 .catch(function (error) {
    console.error('Error:', error);
 });
-
+  
 // grab elements we'll use 
 // these are global! 
 let continueButton = document.getElementById("continue");

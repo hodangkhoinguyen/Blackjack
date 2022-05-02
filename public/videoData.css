@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Inter:wght@400;600&display=swap');
 
 * {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
 }
 
 body {
@@ -43,6 +43,9 @@ div.video {
   padding: 30px;
   border-radius: 30px;
   background-color: var(--ttmagenta);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 blockquote {
@@ -56,6 +59,12 @@ blockquote {
 iframe {
   margin-top: -1px;
   margin-left: -1px;
+}
+
+h2 {  
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
 }
 
 .icons {
