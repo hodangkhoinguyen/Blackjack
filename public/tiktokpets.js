@@ -19,12 +19,12 @@ async function sendPostRequest(url, data) {
 }
 
 function continueFunction() {
-  const username = document.getElementsByName("username")[0].value;
+  const userid = document.getElementsByName("username")[0].value;
   const url = document.getElementsByName("url")[0].value;
   const nickname = document.getElementsByName("nickname")[0].value;
 
   let info = {
-    "username" : username,
+    "userid" : userid,
     "url" : url,
     "nickname" : nickname
     };
@@ -36,7 +36,7 @@ function continueFunction() {
 // https://POST-Example.profamenta.repl.co/newlog
   .then(function (data) {
     console.log("got back the following string");
-    console.log(data); 
+    console.log(data);
     sessionStorage.setItem("nick",nickname);
     window.location = "/videoData.html";
   })

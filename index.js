@@ -37,10 +37,13 @@ app.get("/", (request, response) => {
 
 app.post('/videoData', function(req, res, next) {
   console.log("Server recieved a post request at", req.url);
-  let infoJSON = req.body;
-  console.log("It contained this string:", infoJSON.username);
-  let a = {"key" : "value"};
-  res.json(a);
+  let videoObj = req.body;
+  console.log("It contained this string:", videoObj);
+  newVideo(videoObj)
+  .then(function(result) {
+    res.json(result);
+  })
+  .catch(function(err) {console.log("Cannot add a new video")});
 });
 
 app.post('/acknowledgement', function(req, res, next) {
@@ -61,3 +64,33 @@ app.use(function(req, res){ res.status(404); res.type('txt'); res.send('404 - Fi
 const listener = app.listen(3000, function () {
   console.log("The static server is listening on port " + listener.address().port);
 });
+
+//An async function to check if the database can store more videos
+async function newVideo(v) {
+  let result = await dumpTable();
+  console.log(result);
+  if (result.length < 8) {
+    await insertVideo(v); 
+    return "Added to database";
+  }
+  else {
+    return "Database full";
+  }
+}
+
+// An async function to insert a video into the database
+async function insertVideo(v) {
+  let sql = "update VideoTable set flag=FALSE where flag=TRUE";
+  await db.run(sql);
+  sql = "insert into VideoTable (url,nickname,userid,flag) values (?,?,?,TRUE)";
+  
+  await db.run(sql,[v.url, v.nickname, v.userid]);
+}
+
+// An async function to dump the database's content
+async function dumpTable() {
+  const sql = "select * from VideoTable";
+  
+  let result = await db.all(sql);
+  return result;
+}
