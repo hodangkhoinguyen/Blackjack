@@ -8,7 +8,7 @@ async function sendPostRequest(url, data) {
   let response = await fetch(url, {
     method: 'POST', 
     headers: {'Content-Type': 'application/json'},
-    body: data });
+    body: JSON.stringify(data) });
   console.log(typeof(response));
   if (response.ok) {
     let data = await response.json();
@@ -28,8 +28,8 @@ function continueFunction() {
     "url" : url,
     "nickname" : nickname
     };
-  let infoJSON = JSON.stringify(info);
-  sendPostRequest('/videoData', infoJSON)
+  
+  sendPostRequest('/videoData', info)
 // since this page appears at 
 // https://POST-Example.profamenta.repl.co
 // the POST request goes to 
@@ -37,8 +37,12 @@ function continueFunction() {
   .then(function (data) {
     console.log("got back the following string");
     console.log(data);
-    sessionStorage.setItem("nick",nickname);
-    window.location = "/videoData.html";
+    if (data == "Database full") {
+      alert(data);
+    }
+    else {
+      window.location = "/videoData.html";
+    }
   })
   .catch(function (error) {
      console.error('Error:', error);
