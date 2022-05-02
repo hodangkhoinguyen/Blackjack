@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Inter:wght@400;600&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+main{
+    width: 100%;
+}
+
+button {
+    height: 45px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(238, 29, 82, 0.9);
+}
+
+header {
+    width: 85%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+
+#logo {
+    font-family: 'Boogaloo', cursive;
+    font-size: 32px;
+}
+
+.delete{
+    font-family: 'Boogaloo', cursive;
+    font-size: 44px;
+    color: rgba(238, 29, 82, 0.9);
+    background-color: rgba(255, 255, 255, 0);
+    margin-left: -20px;
+}
+
+h2{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h3{
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.container {
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#video_container{
+    gap: 20px;
+}
+
+.video{
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.vtitle{
+    width: 240px;
+    min-height: 36px;
+    display: flex;
+    border-style: dashed;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: gray;
+    line-height: 36px;
+    margin-right: -5px;
+}
+
+#continue_button{
+    margin-top: 20px;
+}
+
