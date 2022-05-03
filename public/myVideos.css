@@ -47,7 +47,7 @@ h2{
     margin-bottom: 20px;
 }
 
-.videoName{
+h3{
     font-size: 14px;
     margin-left: 20px;
 }
@@ -71,7 +71,7 @@ h2{
     margin-left: 50px;
 }
 
-.videoLine{
+.vtitle{
     width: 240px;
     min-height: 36px;
     display: flex;
