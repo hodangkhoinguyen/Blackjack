@@ -66,12 +66,13 @@ h2 {
   font-weight: bold;
   color: white;
   font-size: 18px;
+  padding: 12px 0px 6px 0px;
 }
 
 .icons {
   margin-top: 20px;
   color: var(--ttmagenta);
-  font-size: 50px;
+  font-size: 40px;
   transform: rotate(45deg) scaleX(-1);
 }
 
