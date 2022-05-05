@@ -40,9 +40,9 @@ button {
 }
 
 div.video {
-  width: 325px;
-  padding: 30px;
-  border-radius: 30px;
+  width: 225px;
+  padding: 10px;
+  border-radius: 10px;
   background-color: var(--ttmagenta);
   display: flex;
   flex-direction: column;
