@@ -98,7 +98,7 @@ div.container {
 }
 
 /*for tablet*/
-@media (min-width: 480px) {  
+@media (min-width: 700px) {  
   body {
     margin: 0 40px;
     margin-top: 80px;
