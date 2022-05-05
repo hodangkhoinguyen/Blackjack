@@ -14,14 +14,19 @@ reloadButton.addEventListener("click", reloadVideo);
 
 sendGetRequest('/getMostRecent')
 .then(function (data) {
-  console.log(data.url);
-  url = data.url;
-  nickname.textContent = data.nickname;
-  // add the blockquote element that TikTok wants to load the video into
-  addVideo(url,divElmt);
-
-  // on start-up, load the videos
-  loadTheVideos();
+  if (data == "Database is empty")
+  {
+    alert("There is no video.")
+  }
+  else {
+    url = data.url;
+    nickname.textContent = data.nickname;
+    // add the blockquote element that TikTok wants to load the video into
+    addVideo(url,divElmt);
+  
+    // on start-up, load the videos
+    loadTheVideos();
+  }
 })
 .catch(function (error) {
    console.error('Error:', error);

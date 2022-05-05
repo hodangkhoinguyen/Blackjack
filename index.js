@@ -67,7 +67,12 @@ app.get('/getMostRecent', function(req, res, next) {
   console.log("Server received a post request at", req.url);
   getMostRecentVideo()
   .then(function(result) {
-    res.json(result);
+    if (result === undefined) {
+      res.json("Database is empty");
+    }
+    else {
+      res.json(result);
+    }
   })
   .catch(function(err) {console.log("Cannot get the most recent video")});
 });
