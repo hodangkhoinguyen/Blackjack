@@ -93,7 +93,7 @@ function continueFunction() {
   .then(function (data) {
     console.log("got back the following string");
     console.log(data); 
-    window.location = "/tiktokpets.html";
+    window.location = "/myVideos.html";
   })
   .catch(function (error) {
      console.error('Error:', error);

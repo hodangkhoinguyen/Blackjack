@@ -32,7 +32,7 @@ app.use(express.static("public"));
 
 // if no file specified, return the main page
 app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/public/tiktokpets.html");
+  response.sendFile(__dirname + "/public/myVideos.html");
 });
 
 app.post('/videoData', function(req, res, next) {
@@ -61,6 +61,16 @@ app.get('/getMostRecent', function(req, res, next) {
   })
   .catch(function(err) {console.log("Cannot get the most recent video")});
 });
+
+app.get('/getList', function(req, res, next) {
+  console.log("Server received a post request at", req.url);
+  dumpTable()
+  .then(function(result) {
+    res.json(result);
+  })
+  .catch(function(err) {console.log("Cannot get the video list")});
+});
+
 
 // Need to add response if page not found!
 app.use(function(req, res){ res.status(404); res.type('txt'); res.send('404 - File '+req.url+' not found'); });
