@@ -3,6 +3,15 @@ var url = 'https://www.tiktok.com/@cheyennebaker1/video/7088856562982423854';
 
 let divElmt = document.getElementById("tiktokDiv");
 let nickname = document.getElementById("nickname");
+
+// grab elements we'll use 
+// these are global! 
+let continueButton = document.getElementById("continue");
+let reloadButton = document.getElementById("reload");
+
+continueButton.addEventListener("click", continueFunction);
+reloadButton.addEventListener("click", reloadVideo);
+
 sendGetRequest('/getMostRecent')
 .then(function (data) {
   console.log(data.url);
@@ -18,13 +27,6 @@ sendGetRequest('/getMostRecent')
    console.error('Error:', error);
 });
   
-// grab elements we'll use 
-// these are global! 
-let continueButton = document.getElementById("continue");
-let reloadButton = document.getElementById("reload");
-
-continueButton.addEventListener("click", continueFunction);
-reloadButton.addEventListener("click", reloadVideo);
 
 // Add the blockquote element that tiktok will load the video into
 async function addVideo(tiktokurl,divElmt) {
