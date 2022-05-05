@@ -6,7 +6,7 @@
 }
 
 body {
-  margin: 8%;
+  margin: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,9 +29,9 @@ main {
 
 button {
   margin-top: 40px;
-  height: 45px;
-  width: 95px;
-  border-radius: 10px;
+  height: 48px;
+  width: 126px;
+  border-radius: 16px;
   font-size: 16px;
   font-weight: 600;
   color: white;
@@ -40,7 +40,7 @@ button {
 }
 
 div.video {
-  width: 225px;
+  width: 325px;
   padding: 10px;
   border-radius: 10px;
   background-color: var(--ttmagenta);
@@ -77,7 +77,7 @@ h2 {
 }
 
 #reload {
-  margin-top: 0;
+  margin-top: 0px;
   background-color: white;
 }
 
@@ -90,7 +90,7 @@ h2 {
 @media (min-width: 480px) {
   body {
     margin: 0 40px;
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   main {
@@ -98,18 +98,19 @@ h2 {
   }
 
   button {
-    margin-top: 50px;
     font-size: 20px;
     height: 60px;
     width: 145px;
+    margin-top: 60px;
   }
-
+  
   h2 {
     font-size: 24px;
   }
 
-  #logo {
-    font-size: 48px;
+  .icons {
+    font-size: 56px;
+    margin-top: 30px;
   }
 }
 
@@ -121,9 +122,14 @@ h2 {
   }
 
   .icons {
-    margin-top: 30px;
-    color: var(--ttmagenta);
-    font-size: 60px;
+    font-size: 64px;
+    margin-top: 40px;
+  }
+
+  #continue {
+    position: absolute;
+    right: 40px;
+    top: 800px;
   }
 }
 

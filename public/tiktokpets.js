@@ -2,6 +2,8 @@
 
 const continueButton = document.getElementById("continue_button");
 continueButton.addEventListener("click", continueFunction);
+const videoButton = document.getElementById("videos_button");
+videoButton.addEventListener("click", myVideo);
 
 async function sendPostRequest(url, data) {
   console.log("about to send post request");
@@ -16,6 +18,10 @@ async function sendPostRequest(url, data) {
   } else {
     throw Error(response.status);
   }
+}
+
+function myVideo() {
+  window.location = "/myVideos.html";  
 }
 
 function continueFunction() {
