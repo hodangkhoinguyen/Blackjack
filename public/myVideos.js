@@ -7,6 +7,7 @@ let video = [];
 let deleteButton = [];
 let addButton = document.getElementById("add");
 addButton.addEventListener("click", addNew);
+let playButton = document.getElementById("continue_button");
 
 for (let i = 0; i < numLabels; i++) {
   label[i] = document.getElementsByClassName("label")[i];
@@ -50,12 +51,26 @@ async function reloadTheList() {
     label[i].textContent = list[i].nickname;
   }
 
-  for (let i = list.length; i < numLabels; i++) {    
-    box[i].style.borderStyle = "dashed";
-    box[i].style.backgroundColor = "white";
-    label[i].textContent = "";
-    
+  if (list.length == 8) {
+    addButton.style.opacity = "0.5";
+    addButton.disabled = true;
+
+    playButton.style.opacity = "0.9";
+    playButton.disabled = false;
   }
+  else {
+    for (let i = list.length; i < numLabels; i++) {    
+      box[i].style.borderStyle = "dashed";
+      box[i].style.backgroundColor = "white";
+      label[i].textContent = "";
+    }
+    playButton.style.opacity = "0.5";
+    playButton.disabled = true;
+
+    addButton.style.opacity = "0.9";
+    addButton.disabled = false;
+  }
+  
 }
 
 async function sendPostRequest(url, data) {
