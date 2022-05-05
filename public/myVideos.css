@@ -20,7 +20,7 @@ button {
     font-size: 16px;
     font-weight: 600;
     color: white;
-    background-color: rgba(238, 29, 82, 0.9);
+    background-color: rgba(238, 29, 82, 0.8);
     cursor: pointer;
 }
 
@@ -41,7 +41,7 @@ header {
 .delete{
     font-family: 'Boogaloo', cursive;
     font-size: 44px;
-    color: rgba(238, 29, 82, 0.9);
+    color: rgba(238, 29, 82, 0.8);
     background-color: rgba(255, 255, 255, 0);
     margin-left: -20px;
 }

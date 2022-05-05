@@ -55,7 +55,7 @@ async function reloadTheList() {
     addButton.style.opacity = "0.5";
     addButton.disabled = true;
 
-    playButton.style.opacity = "0.9";
+    playButton.style.opacity = "1";
     playButton.disabled = false;
   }
   else {
@@ -67,7 +67,7 @@ async function reloadTheList() {
     playButton.style.opacity = "0.5";
     playButton.disabled = true;
 
-    addButton.style.opacity = "0.9";
+    addButton.style.opacity = "1";
     addButton.disabled = false;
   }
   
