@@ -38,7 +38,7 @@ async function addVideo(tiktokurl,divElmt) {
   block.cite = tiktokurl;
   // have to be formal for attribute with dashes
   block.setAttribute("data-video-id",videoNumber);
-  block.style = "width: 325px; height: 563px;"
+  block.style = "width: 231px; height: 400px;"
 
   let section = document.createElement('section');
   block.appendChild(section);
