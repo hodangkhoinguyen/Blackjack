@@ -53,6 +53,16 @@ app.post('/acknowledgement', function(req, res, next) {
   res.json("I got your POST request");
 });
 
+app.post('/deleteVideo', function(req, res, next) {
+  console.log("Server received a post request at", req.url);
+  let videoObj = req.body;
+  deleteVideo(videoObj.nickname)
+  .then(function(result) {
+    res.json("Deleted successfully");
+  })
+  .catch(function(err) {console.log("Cannot get the video list")});
+});
+
 app.get('/getMostRecent', function(req, res, next) {
   console.log("Server received a post request at", req.url);
   getMostRecentVideo()
@@ -118,4 +128,9 @@ async function getMostRecentVideo() {
   const sql = "select * from VideoTable where flag=TRUE";
   let result = await db.get(sql);
   return result;
+}
+
+async function deleteVideo(v) {
+  const sql = "delete from VideoTable where nickname=?";
+  await db.run(sql, [v]);
 }

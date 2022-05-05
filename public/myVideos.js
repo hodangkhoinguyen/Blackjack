@@ -13,7 +13,9 @@ for (let i = 0; i < numLabels; i++) {
   box[i] = document.getElementsByClassName("vtitle")[i];
   let button = document.getElementsByClassName("delete")[i];
   button.addEventListener("click", function() {
-    deleteVideo(i);
+    deleteVideo(i).catch(function (error) {
+  console.error('Error:', error);
+});
   });
   deleteButton[i] = button;
 }
@@ -22,11 +24,11 @@ reloadTheList().catch(function (error) {
   console.error('Error:', error);
 });
 
-function deleteVideo(i) {
+async function deleteVideo(i) {
   let content = label[i].textContent;
   if (content != "") {
-    sendPostRequest("/deleteVideo", {'nickname' : content});
-    reloadTheList();
+    await sendPostRequest("/deleteVideo", {'nickname' : content});
+    await reloadTheList();
   }
 }
 
@@ -41,7 +43,7 @@ function addNew() {
 
 async function reloadTheList() {
   let list = await sendGetRequest("/getList");
-
+  console.log(list);
   for (let i = 0; i < list.length; i++) {    
     box[i].style.borderStyle = "solid";
     label[i].textContent = list[i].nickname;
