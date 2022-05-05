@@ -16,7 +16,7 @@ sendGetRequest('/getMostRecent')
 .then(function (data) {
   console.log(data.url);
   url = data.url;
-  nickname.innerText = data.nickname;
+  nickname.textContent = data.nickname;
   // add the blockquote element that TikTok wants to load the video into
   addVideo(url,divElmt);
 
@@ -91,7 +91,7 @@ function reloadVideo () {
 function continueFunction() {
   let info = "acknowledgement done!";
   
-  sendPostRequest('/acknowledgement', info)
+  sendPostRequest('/acknowledgement')
   .then(function (data) {
     console.log("got back the following string");
     console.log(data); 
@@ -120,8 +120,8 @@ async function sendPostRequest(url, data) {
     console.log("about to send post request");
     let response = await fetch(url, {
       method: 'POST', 
-      headers: {'Content-Type': 'text/plain'},
-      body: data });
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data) });
     if (response.ok) {
       let data = await response.json();
       return data;

@@ -46,13 +46,15 @@ async function reloadTheList() {
   console.log(list);
   for (let i = 0; i < list.length; i++) {    
     box[i].style.borderStyle = "solid";
-    box[i].style.backgroundColor = "F8F8F8";
+    box[i].style.backgroundColor = "#F8F8F8";
     label[i].textContent = list[i].nickname;
   }
 
   for (let i = list.length; i < numLabels; i++) {    
     box[i].style.borderStyle = "dashed";
+    box[i].style.backgroundColor = "white";
     label[i].textContent = "";
+    
   }
 }
 

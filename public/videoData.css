@@ -75,6 +75,11 @@ h2 {
   transform: rotate(45deg) scaleX(-1);
 }
 
+#reload {
+  margin-top: 0;
+  background-color: white;
+}
+
 #logo {
     font-family: 'Boogaloo', cursive;
     font-size: 32px;
